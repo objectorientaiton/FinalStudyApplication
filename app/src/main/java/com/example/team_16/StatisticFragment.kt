@@ -85,25 +85,31 @@ class StatisticFragment: Fragment() {
         leftAxis.textColor = Color.parseColor("#002870")
         leftAxis.granularity = 1f
         leftAxis.axisMinimum = 0f
-        if(viewModel.hour1.value?.minus(6*60*60)!! <= 0 && viewModel.hour2.value?.minus(6*60*60)!! <= 0 &&
+        if(viewModel.hour1.value?.minus(3*60*60)!! <= 0 && viewModel.hour2.value?.minus(3*60*60)!! <= 0 &&
+            viewModel.hour3.value?.minus(3*60*60)!! <= 0 && viewModel.hour4.value?.minus(3*60*60)!! <= 0 &&
+            viewModel.hour5.value?.minus(3*60*60)!! <= 0 && viewModel.hour6.value?.minus(3*60*60)!! <= 0 &&
+            viewModel.hour7.value?.minus(3*60*60)!! <= 0){ // 공부시간이 3시간 이하라면
+            leftAxis.axisMaximum = 6f
+        }
+        else if(viewModel.hour1.value?.minus(6*60*60)!! <= 0 && viewModel.hour2.value?.minus(6*60*60)!! <= 0 &&
             viewModel.hour3.value?.minus(6*60*60)!! <= 0 && viewModel.hour4.value?.minus(6*60*60)!! <= 0 &&
             viewModel.hour5.value?.minus(6*60*60)!! <= 0 && viewModel.hour6.value?.minus(6*60*60)!! <= 0 &&
-            viewModel.hour7.value?.minus(6*60*60)!! <= 0){ // 공부시간이 6시간 이하라면
+            viewModel.hour7.value?.minus(6*60*60)!! <= 0){ // 공부시간이 3시간 초과 6시간 이하라면
             leftAxis.axisMaximum = 6f
         }
         else if(viewModel.hour1.value?.minus(12*60*60)!! <= 0 && viewModel.hour2.value?.minus(12*60*60)!! <= 0 &&
             viewModel.hour3.value?.minus(12*60*60)!! <= 0 && viewModel.hour4.value?.minus(12*60*60)!! <= 0 &&
             viewModel.hour5.value?.minus(12*60*60)!! <= 0 && viewModel.hour6.value?.minus(12*60*60)!! <= 0 &&
-            viewModel.hour7.value?.minus(12*60*60)!! <= 0){ // 공부시간이 6시간 이상 12시간 이하라면
+            viewModel.hour7.value?.minus(12*60*60)!! <= 0){ // 공부시간이 6시간 초과 12시간 이하라면
             leftAxis.axisMaximum = 12f
         }
         else if(viewModel.hour1.value?.minus(18*60*60)!! <= 0 && viewModel.hour2.value?.minus(18*60*60)!! <= 0 &&
             viewModel.hour3.value?.minus(18*60*60)!! <= 0 && viewModel.hour4.value?.minus(18*60*60)!! <= 0 &&
             viewModel.hour5.value?.minus(18*60*60)!! <= 0 && viewModel.hour6.value?.minus(18*60*60)!! <= 0 &&
-            viewModel.hour7.value?.minus(18*60*60)!! <= 0){ // 공부시간이 12시간 이상 18시간 이하라면
+            viewModel.hour7.value?.minus(18*60*60)!! <= 0){ // 공부시간이 12시간 초과 18시간 이하라면
             leftAxis.axisMaximum = 18f
         }
-        else{ // 공부시간이 18시간 이상 24시간 이하라면
+        else{ // 공부시간이 18시간 초과 24시간 이하라면
             leftAxis.axisMaximum = 24f
         }
 
