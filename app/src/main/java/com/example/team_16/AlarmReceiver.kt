@@ -11,30 +11,11 @@ import androidx.core.app.NotificationCompat
 
 const val ALARM_NOTIFICATION_ID = 3
 
-class AlarmReceiver1: BroadcastReceiver() {
+class AlarmReceiver: BroadcastReceiver() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onReceive(context: Context, intent: Intent?) {
         context.let {
 
-            val contentIntent = Intent(context, StopwatchFragment::class.java)
-            val pendingIntent = PendingIntent.getActivity(context,0,contentIntent, PendingIntent.FLAG_IMMUTABLE)
-
-            val notification = NotificationCompat.Builder(context, App.ALERT_CHANNEL_ID)
-                .setContentTitle("Alarm Alert")
-                .setContentText("공부를 시작한지 1시간이 지났습니다!")
-                .setSmallIcon((R.drawable.ic_baseline_notifications_active_24))
-                .setContentIntent(pendingIntent)
-                .build()
-
-            context.getSystemService(NotificationManager::class.java)
-                .notify(ALARM_NOTIFICATION_ID, notification)
-        }
-    }
-}
-class AlarmReceiver2: BroadcastReceiver(){
-    @RequiresApi(Build.VERSION_CODES.O)
-    override fun onReceive(context: Context, intent: Intent?) {
-        context.let{
             val contentIntent = Intent(context, StopwatchFragment::class.java)
             val pendingIntent = PendingIntent.getActivity(context,0,contentIntent, PendingIntent.FLAG_IMMUTABLE)
 

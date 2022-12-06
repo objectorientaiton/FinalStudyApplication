@@ -91,12 +91,12 @@ class StopwatchFragment : Fragment() {
 
         binding?.btnStart?.setOnClickListener {
             viewModel.timerStart()
-            val intent = Intent(mContext, AlarmReceiver1::class.java)
+            val intent = Intent(mContext, AlarmReceiver::class.java)
             val pendingIntent = PendingIntent.getBroadcast(mContext, 0 , intent, PendingIntent.FLAG_IMMUTABLE)
 
             getSystemService(mContext, AlarmManager::class.java)?.setExact(
                 AlarmManager.RTC_WAKEUP,
-                SystemClock.elapsedRealtime() + 10,
+                SystemClock.elapsedRealtime() + 60*60*1000,
                 pendingIntent
             )
          }
